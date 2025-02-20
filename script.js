@@ -1,34 +1,55 @@
-// Zmienna do przechowywania numeru aktualnej strony
 let currentPage = 1;
-const totalPages = 5; // Ustal ilość stron
+let pageCount = 1;
+let content = document.querySelector('.content');
 
-// Funkcja do zmiany strony
+const pageContainer = document.getElementById('page-container');
+const pageNumberElement = document.getElementById('page-number');
+const prevButton = document.getElementById('prev-page');
+const nextButton = document.getElementById('next-page');
+
+function createNewPage() {
+    const newPage = document.createElement('div');
+    newPage.classList.add('page');
+    newPage.innerHTML = `<div class="content" contenteditable="true" placeholder="Wpisz tekst tutaj..."></div>`;
+    pageContainer.appendChild(newPage);
+    pageCount++;
+}
+
 function changePage(direction) {
-    if (direction === 'next' && currentPage < totalPages) {
+    if (direction === 'next' && currentPage < pageCount) {
         currentPage++;
     } else if (direction === 'prev' && currentPage > 1) {
         currentPage--;
     }
 
-    // Zmieniamy tekst strony
-    const pageElement = document.getElementById('page');
-    const pageNumberElement = document.getElementById('pageNumber');
-    const bookTextArea = document.getElementById('bookText');
-    
-    // Możesz dostosować treść stron poniżej:
-    let pageText = '';
-    if (currentPage === 1) {
-        pageText = 'Witaj na pierwszej stronie!';
-    } else if (currentPage === 2) {
-        pageText = 'Strona 2 - Przygody zaczynają się...';
-    } else if (currentPage === 3) {
-        pageText = 'Strona 3 - Tajemnicze wydarzenia wkrótce się rozwiną.';
-    } else if (currentPage === 4) {
-        pageText = 'Strona 4 - Wkrótce dojdzie do wielkich zmian.';
-    } else if (currentPage === 5) {
-        pageText = 'Strona 5 - Wielki finał! Co się stanie dalej?';
+    updatePageView();
+}
+
+function updatePageView() {
+    const pages = document.querySelectorAll('.page');
+    pages.forEach((page, index) => {
+        if (index + 1 === currentPage) {
+            page.style.display = 'block';
+        } else {
+            page.style.display = 'none';
+        }
+    });
+
+    pageNumberElement.textContent = `Strona: ${currentPage}`;
+}
+
+prevButton.addEventListener('click', () => changePage('prev'));
+nextButton.addEventListener('click', () => changePage('next'));
+
+// Dynamically create pages based on content length
+content.addEventListener('input', () => {
+    let text = content.textContent;
+
+    if (text.length > 1000 && pageCount === currentPage) {
+        createNewPage();
     }
 
-    pageElement.innerHTML = `<textarea id="bookText" class="editable-text">${bookTextArea.value}</textarea>`;
-    pageNumberElement.textContent = `Strona ${currentPage}`;
-}
+    updatePageView();
+});
+
+updatePageView();
