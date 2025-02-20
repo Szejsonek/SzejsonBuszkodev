@@ -1,6 +1,6 @@
 let currentPage = 1;
 let pageCount = 1;
-let content = document.querySelector('.content');
+let content = "";
 
 const pageContainer = document.getElementById('page-container');
 const pageNumberElement = document.getElementById('page-number');
@@ -42,14 +42,23 @@ prevButton.addEventListener('click', () => changePage('prev'));
 nextButton.addEventListener('click', () => changePage('next'));
 
 // Dynamically create pages based on content length
-content.addEventListener('input', () => {
-    let text = content.textContent;
+function addTextToPage(text) {
+    content += text;
 
-    if (text.length > 1000 && pageCount === currentPage) {
+    let pageContent = content.slice(0, 2000); // Limit 2000 znaków na stronę
+
+    if (content.length > 2000) {
         createNewPage();
+        content = content.slice(2000); // Zwracamy resztę tekstu do nowej strony
     }
 
-    updatePageView();
+    const pages = document.querySelectorAll('.page');
+    pages[pages.length - 1].querySelector('.content').innerHTML = pageContent;
+}
+
+// Example text input simulation (you can replace this with actual user input)
+document.addEventListener('DOMContentLoaded', () => {
+    addTextToPage("Witaj w książce! Tutaj możesz pisać. Kontynuuj, a strona automatycznie będzie się rozdzielać.");
 });
 
 updatePageView();
