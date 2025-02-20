@@ -9,6 +9,7 @@ const nextButton = document.getElementById('next-page');
 const addTextButton = document.getElementById('add-text');
 const textInput = document.getElementById('text-input');
 
+// Funkcja do tworzenia nowej strony
 function createNewPage() {
     const newPage = document.createElement('div');
     newPage.classList.add('page');
@@ -17,6 +18,7 @@ function createNewPage() {
     pageCount++;
 }
 
+// Funkcja do zmiany stron
 function changePage(direction) {
     if (direction === 'next' && currentPage < pageCount) {
         currentPage++;
@@ -27,6 +29,7 @@ function changePage(direction) {
     updatePageView();
 }
 
+// Funkcja do aktualizacji widoku stron
 function updatePageView() {
     const pages = document.querySelectorAll('.page');
     pages.forEach((page, index) => {
@@ -40,6 +43,7 @@ function updatePageView() {
     pageNumberElement.textContent = `Strona: ${currentPage}`;
 }
 
+// Funkcja do dodawania tekstu do strony
 function addTextToPage(text) {
     content += text;
 
@@ -54,6 +58,7 @@ function addTextToPage(text) {
     pages[pages.length - 1].querySelector('.content').innerHTML = pageContent;
 }
 
+// Dodanie tekstu po kliknięciu przycisku
 addTextButton.addEventListener('click', () => {
     const text = textInput.value;
     if (text.trim()) {
@@ -62,9 +67,10 @@ addTextButton.addEventListener('click', () => {
     }
 });
 
+// Obsługa przycisków nawigacyjnych
 prevButton.addEventListener('click', () => changePage('prev'));
 nextButton.addEventListener('click', () => changePage('next'));
 
-// Initialize first page
+// Inicjalizacja pierwszej strony
 createNewPage();
 updatePageView();
