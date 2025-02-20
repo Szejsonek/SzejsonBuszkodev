@@ -50,7 +50,7 @@ body {
 }
 
 .page:hover {
-    transform: scale(1.02);
+    transform: scale(1.05);  /* Strona będzie się powiększać przy najechaniu */
 }
 
 #navigation {
