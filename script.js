@@ -6,6 +6,8 @@ const pageContainer = document.getElementById('page-container');
 const pageNumberElement = document.getElementById('page-number');
 const prevButton = document.getElementById('prev-page');
 const nextButton = document.getElementById('next-page');
+const addTextButton = document.getElementById('add-text');
+const textInput = document.getElementById('text-input');
 
 function createNewPage() {
     const newPage = document.createElement('div');
@@ -38,10 +40,6 @@ function updatePageView() {
     pageNumberElement.textContent = `Strona: ${currentPage}`;
 }
 
-prevButton.addEventListener('click', () => changePage('prev'));
-nextButton.addEventListener('click', () => changePage('next'));
-
-// Dynamically create pages based on content length
 function addTextToPage(text) {
     content += text;
 
@@ -56,9 +54,17 @@ function addTextToPage(text) {
     pages[pages.length - 1].querySelector('.content').innerHTML = pageContent;
 }
 
-// Example text input simulation (you can replace this with actual user input)
-document.addEventListener('DOMContentLoaded', () => {
-    addTextToPage("Witaj w książce! Tutaj możesz pisać. Kontynuuj, a strona automatycznie będzie się rozdzielać.");
+addTextButton.addEventListener('click', () => {
+    const text = textInput.value;
+    if (text.trim()) {
+        addTextToPage(text);
+        textInput.value = ''; // Clear the input after adding text
+    }
 });
 
+prevButton.addEventListener('click', () => changePage('prev'));
+nextButton.addEventListener('click', () => changePage('next'));
+
+// Initialize first page
+createNewPage();
 updatePageView();
