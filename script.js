@@ -6,7 +6,6 @@ const pageContainer = document.getElementById('page-container');
 const pageNumberElement = document.getElementById('page-number');
 const prevButton = document.getElementById('prev-page');
 const nextButton = document.getElementById('next-page');
-const deleteButton = document.getElementById('delete-page');
 const addTextButton = document.getElementById('add-text');
 const textInput = document.getElementById('text-input');
 
@@ -14,7 +13,6 @@ const textInput = document.getElementById('text-input');
 function createNewPage() {
     const newPage = document.createElement('div');
     newPage.classList.add('page');
-    newPage.innerHTML = `<div class="content" contenteditable="true" placeholder="Wpisz tekst tutaj..."></div>`;
     pageContainer.appendChild(newPage);
     pageCount++;
 }
@@ -56,20 +54,7 @@ function addTextToPage(text) {
     }
 
     const pages = document.querySelectorAll('.page');
-    pages[pages.length - 1].querySelector('.content').innerHTML = pageContent.replace(/\n/g, '<br>');  // Zachowanie nowych linii
-}
-
-// Funkcja do usuwania ostatniej strony
-function deletePage() {
-    const pages = document.querySelectorAll('.page');
-    if (pages.length > 1) {
-        pages[pages.length - 1].remove();
-        pageCount--;
-        if (currentPage > pageCount) {
-            currentPage = pageCount;
-        }
-        updatePageView();
-    }
+    pages[pages.length - 1].innerText = pageContent;  // Dodajemy tekst do strony
 }
 
 // Dodanie tekstu po kliknięciu przycisku
@@ -84,7 +69,6 @@ addTextButton.addEventListener('click', () => {
 // Obsługa przycisków nawigacyjnych
 prevButton.addEventListener('click', () => changePage('prev'));
 nextButton.addEventListener('click', () => changePage('next'));
-deleteButton.addEventListener('click', () => deletePage());
 
 // Inicjalizacja pierwszej strony
 createNewPage();
