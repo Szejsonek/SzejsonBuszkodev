@@ -77,6 +77,14 @@ button:hover {
     background-color: #45a049;
 }
 
+#delete-page {
+    background-color: #d9534f;
+}
+
+#delete-page:hover {
+    background-color: #c9302c;
+}
+
 #page-number {
     text-align: center;
     font-size: 20px;
