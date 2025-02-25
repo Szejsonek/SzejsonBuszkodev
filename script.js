@@ -24,18 +24,23 @@ const textarea1 = document.getElementById('textarea1');
 const pageNumber = document.getElementById('pageNumber');
 const prevPageBtn = document.getElementById('prevPage');
 const nextPageBtn = document.getElementById('nextPage');
+const loginError = document.getElementById('loginError');
 
 let currentPage = 1;
 let isAdmin = false;
 
 loginBtn.addEventListener('click', () => {
   loginSection.style.display = 'block';
+  emailInput.style.display = 'inline-block';
+  passwordInput.style.display = 'inline-block';
+  loginSubmit.style.display = 'inline-block';
 });
 
 loginSubmit.addEventListener('click', () => {
   const email = emailInput.value;
   const password = passwordInput.value;
 
+  // Sprawdzanie, czy dane logowania są poprawne
   if (email === 'szymonpoczta12@wp.pl' && password === 'bułka123') {
     isAdmin = true;
     alert('Zalogowano jako admin');
@@ -43,7 +48,7 @@ loginSubmit.addEventListener('click', () => {
     content.style.display = 'block';
     loadPageContent();
   } else {
-    alert('Błędne dane logowania');
+    loginError.style.display = 'block';
   }
 });
 
@@ -56,6 +61,13 @@ function loadPageContent() {
       textarea1.value = '';
     }
   });
+
+  // Tylko admin może edytować
+  if (isAdmin) {
+    textarea1.disabled = false;
+  } else {
+    textarea1.disabled = true;
+  }
 
   textarea1.addEventListener('input', () => {
     if (isAdmin) {
