@@ -46,14 +46,14 @@ body {
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease;
     overflow-wrap: break-word;
-    white-space: pre-wrap;  /* Umożliwia wyświetlanie nowych linii w tekście */
+    white-space: pre-wrap;
     font-size: 16px;
     line-height: 1.5;
     min-height: 400px;
 }
 
 .page:hover {
-    transform: scale(1.05);  /* Strona będzie się powiększać przy najechaniu */
+    transform: scale(1.05);
 }
 
 #navigation {
