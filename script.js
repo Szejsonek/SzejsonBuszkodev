@@ -1,51 +1,57 @@
 let currentPage = 1;
-let pageCount = 1;
-let content = "";
+let pages = { 1: "" }; // Obiekt do przechowywania tekstu na każdej stronie
 
-const pageContainer = document.getElementById('page-container');
-const pageNumberElement = document.getElementById('page-number');
-const prevButton = document.getElementById('prev-page');
-const nextButton = document.getElementById('next-page');
+const pageContainer = document.getElementById("page-container");
+const pageNumberElement = document.getElementById("page-number");
+const prevButton = document.getElementById("prev-page");
+const nextButton = document.getElementById("next-page");
 
-// Funkcja do tworzenia nowej strony
-function createNewPage() {
-    const newPage = document.createElement('div');
-    newPage.classList.add('page');
-    newPage.setAttribute('contenteditable', true);  // Umożliwia edytowanie tekstu w prostokącie
-    newPage.setAttribute('data-page', pageCount);  // Umożliwia numerowanie stron
-    pageContainer.appendChild(newPage);
-    pageCount++;
+// Funkcja tworząca stronę (jeśli jeszcze nie istnieje)
+function createPage(pageNumber) {
+    if (!pages[pageNumber]) {
+        pages[pageNumber] = ""; // Tworzymy pustą stronę
+    }
+
+    // Tworzenie elementu strony
+    let newPage = document.createElement("div");
+    newPage.classList.add("page");
+    newPage.setAttribute("contenteditable", true); // Pozwala edytować tekst
+    newPage.setAttribute("data-page", pageNumber);
+    newPage.innerText = pages[pageNumber]; // Wczytuje zapisany tekst
+    newPage.addEventListener("input", (e) => {
+        pages[pageNumber] = e.target.innerText; // Zapisuje zmiany tekstu
+    });
+
+    return newPage;
 }
 
-// Funkcja do zmiany stron
+// Funkcja zmieniająca stronę
 function changePage(direction) {
-    if (direction === 'next' && currentPage < pageCount) {
+    if (direction === "next") {
         currentPage++;
-    } else if (direction === 'prev' && currentPage > 1) {
+        if (!pages[currentPage]) {
+            pages[currentPage] = ""; // Tworzymy stronę, jeśli jeszcze nie istnieje
+        }
+    } else if (direction === "prev" && currentPage > 1) {
         currentPage--;
     }
 
     updatePageView();
 }
 
-// Funkcja do aktualizacji widoku stron
+// Funkcja aktualizująca widok strony
 function updatePageView() {
-    const pages = document.querySelectorAll('.page');
-    pages.forEach((page, index) => {
-        if (index + 1 === currentPage) {
-            page.style.display = 'block';
-        } else {
-            page.style.display = 'none';
-        }
-    });
+    pageContainer.innerHTML = ""; // Czyścimy kontener
+
+    let currentPageElement = createPage(currentPage);
+    pageContainer.appendChild(currentPageElement);
 
     pageNumberElement.textContent = `Strona: ${currentPage}`;
 }
 
 // Obsługa przycisków nawigacyjnych
-prevButton.addEventListener('click', () => changePage('prev'));
-nextButton.addEventListener('click', () => changePage('next'));
+prevButton.addEventListener("click", () => changePage("prev"));
+nextButton.addEventListener("click", () => changePage("next"));
 
 // Inicjalizacja pierwszej strony
-createNewPage();
 updatePageView();
