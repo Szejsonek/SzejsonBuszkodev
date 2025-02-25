@@ -1,92 +1,69 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f0f0f0;
+  text-align: center;
 }
 
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    overflow: hidden;
+h1 {
+  color: #333;
+}
+
+#loginSection {
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+}
+
+input {
+  margin: 10px;
+  padding: 5px;
+  font-size: 16px;
 }
 
 #book-container {
-    width: 80%;
-    height: 80%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    background-color: white;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-    border-radius: 10px;
-    padding: 20px;
-    position: relative;
-}
-
-#page-container {
-    height: 100%;
-    overflow-y: auto;
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
 }
 
 .page {
-    width: 100%;
-    min-height: 80%;
-    margin-bottom: 20px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    background-color: #fff;
-    padding: 20px;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
-    overflow-wrap: break-word;
-    white-space: pre-wrap;
-    font-size: 16px;
-    line-height: 1.5;
-    min-height: 400px;
+  background-color: #fff;
+  width: 80%;
+  height: 500px;
+  margin: 10px;
+  padding: 20px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  overflow-y: auto;
+  position: relative;
 }
 
-.page:hover {
-    transform: scale(1.05);
+textarea {
+  width: 100%;
+  height: 100%;
+  border: none;
+  resize: none;
+  font-size: 16px;
+  padding: 10px;
 }
 
-#navigation {
-    display: flex;
-    justify-content: space-between;
-    padding: 10px;
+#pageNavigation {
+  margin-top: 20px;
 }
 
 button {
-    padding: 10px 20px;
-    font-size: 16px;
-    cursor: pointer;
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    transition: background-color 0.3s;
+  padding: 10px 20px;
+  margin: 10px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  cursor: pointer;
 }
 
-button:hover {
-    background-color: #45a049;
+button:disabled {
+  background-color: #aaa;
 }
 
-#delete-page {
-    background-color: #d9534f;
-}
-
-#delete-page:hover {
-    background-color: #c9302c;
-}
-
-#page-number {
-    text-align: center;
-    font-size: 20px;
-    padding: 10px;
+#pageNumber {
+  font-weight: bold;
+  color: #333;
 }
