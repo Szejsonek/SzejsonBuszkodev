@@ -14,10 +14,6 @@ const auth = firebase.auth();
 const database = firebase.database();
 
 // Elements
-const loginBtn = document.getElementById('loginBtn');
-const loginSection = document.getElementById('loginSection');
-const loginForm = document.getElementById('loginForm');
-const content = document.getElementById('content');
 const loginSubmit = document.getElementById('loginSubmit');
 const emailInput = document.getElementById('email');
 const passwordInput = document.getElementById('password');
@@ -30,10 +26,6 @@ const loginError = document.getElementById('loginError');
 let currentPage = 1;
 let isAdmin = false;
 
-loginBtn.addEventListener('click', () => {
-  loginForm.style.display = 'flex'; // Pokaż formularz logowania
-});
-
 loginSubmit.addEventListener('click', () => {
   const email = emailInput.value;
   const password = passwordInput.value;
@@ -42,8 +34,8 @@ loginSubmit.addEventListener('click', () => {
   if (email === 'szymonpoczta12@wp.pl' && password === 'bułka123') {
     isAdmin = true;
     alert('Zalogowano jako admin');
-    loginSection.style.display = 'none';
-    content.style.display = 'block';
+    document.getElementById('loginSection').style.display = 'none';
+    document.getElementById('content').style.display = 'block';
     loadPageContent();
   } else {
     loginError.style.display = 'block';
