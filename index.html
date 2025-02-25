@@ -16,10 +16,12 @@
   <!-- Sekcja logowania -->
   <div id="loginSection">
     <button id="loginBtn">Logowanie (Admin)</button>
-    <input type="text" id="email" placeholder="Email" style="display:none;">
-    <input type="password" id="password" placeholder="Hasło" style="display:none;">
-    <button id="loginSubmit" style="display:none;">Zaloguj się</button>
-    <p id="loginError" style="color: red; display:none;">Błędne dane logowania</p>
+    <div id="loginForm" style="display:none;">
+      <input type="text" id="email" placeholder="Email" />
+      <input type="password" id="password" placeholder="Hasło" />
+      <button id="loginSubmit">Zaloguj się</button>
+      <p id="loginError" style="color: red; display:none;">Błędne dane logowania</p>
+    </div>
   </div>
 
   <div id="content" style="display: none;">
