@@ -13,17 +13,19 @@
 
   <h1>Przygody Małej M</h1>
 
+  <!-- Sekcja logowania -->
   <div id="loginSection">
-    <button id="loginBtn">Zaloguj się jako admin</button>
-    <input type="text" id="email" placeholder="Email">
-    <input type="password" id="password" placeholder="Hasło">
-    <button id="loginSubmit">Zaloguj</button>
+    <button id="loginBtn">Logowanie (Admin)</button>
+    <input type="text" id="email" placeholder="Email" style="display:none;">
+    <input type="password" id="password" placeholder="Hasło" style="display:none;">
+    <button id="loginSubmit" style="display:none;">Zaloguj się</button>
+    <p id="loginError" style="color: red; display:none;">Błędne dane logowania</p>
   </div>
 
-  <div id="content">
+  <div id="content" style="display: none;">
     <div id="book-container">
       <div class="page" id="page1">
-        <textarea class="book-text" id="textarea1" placeholder="Wpisz tekst..."></textarea>
+        <textarea class="book-text" id="textarea1" placeholder="Wpisz tekst..." disabled></textarea>
       </div>
     </div>
 
