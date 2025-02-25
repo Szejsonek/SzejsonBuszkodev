@@ -64,3 +64,13 @@ deleteButton.addEventListener("click", deletePage);
 
 // Inicjalizacja pierwszej strony
 updatePageView();
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+const firebaseConfig = {
+  apiKey: "AIzaSyCEv4QqXhCE_GubA-ImpAmTLMZ-Ie8wBAI",
+  authDomain: "malem-2d0db.firebaseapp.com",
+  projectId: "malem-2d0db",
+  storageBucket: "malem-2d0db.firebasestorage.app",
+  messagingSenderId: "54725230165",
+  appId: "1:54725230165:web:b516d3fcab6759538cdedc",
+  measurementId: "G-XD3345NGVG"
+};
