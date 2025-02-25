@@ -3,39 +3,75 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Interaktywna książka</title>
+  <title>Opowieść – Rozdziały</title>
   <link rel="stylesheet" href="styles.css">
-  <script src="https://www.gstatic.com/firebasejs/9.5.0/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/9.5.0/firebase-auth.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/9.5.0/firebase-database.js"></script>
 </head>
 <body>
 
-  <h1>Przygody Małej M</h1>
+  <!-- Nawigacja -->
+  <nav>
+    <ul>
+      <li><a href="#rozdzial1">Rozdział 1</a></li>
+      <li><a href="#rozdzial2">Rozdział 2</a></li>
+      <li><a href="#rozdzial3">Rozdział 3</a></li>
+      <li><a href="#rozdzial4">Rozdział 4</a></li>
+      <li><a href="#rozdzial5">Rozdział 5</a></li>
+      <li><a href="#rozdzial6">Rozdział 6</a></li>
+      <li><a href="#rozdzial7">Rozdział 7</a></li>
+      <li><a href="#rozdzial8">Rozdział 8</a></li>
+      <li><a href="#rozdzial9">Rozdział 9</a></li>
+    </ul>
+  </nav>
 
-  <!-- Formularz logowania - widoczny od razu -->
-  <div id="loginSection">
-    <input type="text" id="email" placeholder="Email" />
-    <input type="password" id="password" placeholder="Hasło" />
-    <button id="loginSubmit">Zaloguj się</button>
-    <p id="loginError" style="color: red; display:none;">Błędne dane logowania</p>
+  <!-- Rozdziały -->
+  <div class="content">
+    <section id="rozdzial1">
+      <h1>Rozdział 1 – Początek opowieści</h1>
+      <p>Twoja treść rozdziału 1...</p>
+    </section>
+
+    <section id="rozdzial2">
+      <h1>Rozdział 2 – Drugi rozdział</h1>
+      <p>Treść rozdziału 2...</p>
+    </section>
+
+    <section id="rozdzial3">
+      <h1>Rozdział 3 – Tęsknota w sercu</h1>
+      <p>Treść rozdziału 3...</p>
+    </section>
+
+    <section id="rozdzial4">
+      <h1>Rozdział 4 – Kłopoty przychodzą</h1>
+      <p>Treść rozdziału 4...</p>
+    </section>
+
+    <section id="rozdzial5">
+      <h1>Rozdział 5 – Miłość w mroku</h1>
+      <p>Treść rozdziału 5...</p>
+    </section>
+
+    <section id="rozdzial6">
+      <h1>Rozdział 6 – Zdrada w cieniu</h1>
+      <p>Treść rozdziału 6...</p>
+    </section>
+
+    <section id="rozdzial7">
+      <h1>Rozdział 7 – Miłość wśród dymu i złudzeń</h1>
+      <p>Treść rozdziału 7...</p>
+    </section>
+
+    <section id="rozdzial8">
+      <h1>Rozdział 8 – Polonez na dworku tłuszczańskim</h1>
+      <p>Treść rozdziału 8...</p>
+    </section>
+
+    <section id="rozdzial9">
+      <h1>Rozdział 9 – Dziady Majurańskie</h1>
+      <p>Treść rozdziału 9...</p>
+    </section>
   </div>
 
-  <div id="content" style="display: none;">
-    <div id="book-container">
-      <div class="page" id="page1">
-        <textarea class="book-text" id="textarea1" placeholder="Wpisz tekst..." disabled></textarea>
-      </div>
-    </div>
-
-    <div id="pageNavigation">
-      <button id="prevPage">Poprzednia strona</button>
-      <button id="nextPage">Następna strona</button>
-    </div>
-
-    <p>Strona <span id="pageNumber">1</span></p>
-  </div>
-
+  <!-- Skrypt JS -->
   <script src="script.js"></script>
 </body>
 </html>
