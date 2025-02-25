@@ -1,72 +1,78 @@
+/* Resetowanie domyślnych styli */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Tło i czcionki */
 body {
   font-family: Arial, sans-serif;
-  background-color: #f0f0f0;
-  text-align: center;
+  background-color: #f4f4f4;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* Nawigacja */
+nav {
+  background-color: #333;
+  padding: 1rem;
+}
+
+nav ul {
+  list-style-type: none;
+  display: flex;
+  justify-content: center;
+}
+
+nav ul li {
+  margin: 0 15px;
+}
+
+nav ul li a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 18px;
+  padding: 10px;
+  transition: background-color 0.3s ease;
+}
+
+nav ul li a:hover {
+  background-color: #555;
+}
+
+/* Sekcje rozdziałów */
+.content {
+  padding: 20px;
+}
+
+section {
+  margin: 50px 0;
 }
 
 h1 {
-  color: #333;
+  font-size: 28px;
+  margin-bottom: 15px;
 }
 
-#loginSection {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin-top: 50px;
+/* Styl dla treści rozdziałów */
+p {
+  font-size: 18px;
+  line-height: 1.8;
+  margin-bottom: 20px;
+  text-align: justify;
 }
 
-input {
-  margin: 10px;
-  padding: 5px;
-  font-size: 16px;
-  width: 200px;
-}
-
-button {
-  padding: 10px 20px;
-  margin: 10px;
-  background-color: #4CAF50;
-  color: white;
-  border: none;
-  cursor: pointer;
-}
-
-button:disabled {
-  background-color: #aaa;
-}
-
-#book-container {
-  display: flex;
-  justify-content: center;
-  margin-top: 20px;
-}
-
-.page {
-  background-color: #fff;
-  width: 80%;
-  height: 500px;
-  margin: 10px;
-  padding: 20px;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+/* Stylizacja dla przewijania */
+section {
+  height: 100vh;
   overflow-y: auto;
-  position: relative;
 }
 
-textarea {
-  width: 100%;
-  height: 100%;
-  border: none;
-  resize: none;
-  font-size: 16px;
-  padding: 10px;
-}
-
-#pageNavigation {
-  margin-top: 20px;
-}
-
-#pageNumber {
-  font-weight: bold;
-  color: #333;
+/* Dodatkowe efekty */
+body {
+  background-image: url('https://via.placeholder.com/1500');
+  background-size: cover;
+  background-position: center;
+  color: white;
 }
