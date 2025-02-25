@@ -16,6 +16,7 @@ const database = firebase.database();
 // Elements
 const loginBtn = document.getElementById('loginBtn');
 const loginSection = document.getElementById('loginSection');
+const loginForm = document.getElementById('loginForm');
 const content = document.getElementById('content');
 const loginSubmit = document.getElementById('loginSubmit');
 const emailInput = document.getElementById('email');
@@ -30,10 +31,7 @@ let currentPage = 1;
 let isAdmin = false;
 
 loginBtn.addEventListener('click', () => {
-  loginSection.style.display = 'block';
-  emailInput.style.display = 'inline-block';
-  passwordInput.style.display = 'inline-block';
-  loginSubmit.style.display = 'inline-block';
+  loginForm.style.display = 'flex'; // Pokaż formularz logowania
 });
 
 loginSubmit.addEventListener('click', () => {
